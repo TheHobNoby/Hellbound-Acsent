@@ -6,6 +6,12 @@ var walk_speed = 500
 var jump_count = 0
 var Max_jump = 5
 var is_ready: bool = true
+var weapon = true
+var weapon_cooldown = true 
+var Damge_ball = preload("res://Player_Folder/Damge ball.tscn")
+
+
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -20,8 +26,20 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY + (jump_count*100)
 		jump_count += 1 
 
-
-
+	var playdirtion = get_global_mouse_position()
+	$Marker2D.look_at(playdirtion)
+	
+	if Input.is_action_just_pressed("shot") and weapon and weapon_cooldown:
+		weapon_cooldown = false
+		if Damge_ball is PackedScene:
+			var weapon_ints = Damge_ball.instantiate()
+			weapon_ints.rotation = $Marker2D.rotation
+			weapon_ints.global_position = $Marker2D.global_position
+			add_child(weapon_ints)
+			
+			await get_tree().create_timer(0.6).timeout
+			weapon_cooldown = true
+	
 	# Movement
 	
 		

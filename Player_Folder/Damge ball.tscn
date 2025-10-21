@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://7okxc5ip6uis"]
+
+[ext_resource type="Texture2D" uid="uid://c30y0b1p8dgvg" path="res://icon.svg" id="1_mui8k"]
+[ext_resource type="Script" uid="uid://dyaey5mwi6w7x" path="res://Player_Folder/damge_ball.gd" id="1_s0rs5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0rs5"]
+size = Vector2(64, 27)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_s0rs5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.000002, -2)
+scale = Vector2(0.49218756, 0.2109375)
+texture = ExtResource("1_mui8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_s0rs5")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-35, -16, 64, 27)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
