@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://h28gk81jhbdt"]
+
+[ext_resource type="Script" path="res://Player_Folder/player.gd" id="1_7knsi"]
+[ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="2_usmf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx074"]
+size = Vector2(39, 74)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(454, 230)
+script = ExtResource("1_7knsi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.99999, 379)
+scale = Vector2(0.289063, 0.601563)
+texture = ExtResource("2_usmf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 374)
+shape = SubResource("RectangleShape2D_gx074")
+
+[node name="CoolDown" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(7, 227)
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(9, 384)
+
+[connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
