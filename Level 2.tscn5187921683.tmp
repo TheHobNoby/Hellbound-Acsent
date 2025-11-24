@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c5bqydqmhufwe"]
+[gd_scene load_steps=18 format=4 uid="uid://c5bqydqmhufwe"]
 
 [ext_resource type="Texture2D" uid="uid://b7pxrme4temmu" path="res://BaseTileMap.png" id="1_tfchr"]
 [ext_resource type="Script" uid="uid://b18q7vm3ys584" path="res://Player_Folder/player.gd" id="2_cl68u"]
@@ -7,9 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="4_tuelc"]
 [ext_resource type="Script" uid="uid://c3mml5r5syopm" path="res://Health/Hurt_box_player.gd" id="5_p24lo"]
 [ext_resource type="Script" uid="uid://c6o7skf3blqbe" path="res://Health/heartbox.gd" id="6_4ew63"]
-[ext_resource type="Script" uid="uid://csxoudseg8xqq" path="res://Touchyguy.gd" id="7_4ew63"]
-[ext_resource type="Script" uid="uid://dsed8qjw8dg2r" path="res://Health/hitbox_players.gd" id="9_3iti4"]
-[ext_resource type="PackedScene" uid="uid://cxqtl67tv8750" path="res://Touchy_Guys/ranged_guy.tscn" id="10_p24lo"]
+[ext_resource type="Script" uid="uid://csxoudseg8xqq" path="res://sprite_2d.gd" id="7_4ew63"]
+[ext_resource type="Script" uid="uid://dsed8qjw8dg2r" path="res://Health/hitbox_player.gd" id="9_3iti4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_edbkr"]
 texture = ExtResource("1_tfchr")
@@ -127,12 +126,12 @@ position = Vector2(173, 195)
 rotates = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D"]
-script = ExtResource("7_4ew63")
 
 [node name="Sprite2D" type="Sprite2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D"]
 position = Vector2(2.0000038, 0)
 scale = Vector2(0.4296875, 0.6328125)
 texture = ExtResource("4_tuelc")
+script = ExtResource("7_4ew63")
 
 [node name="Hurtbox" type="Area2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D" node_paths=PackedStringArray("health")]
 script = ExtResource("6_4ew63")
@@ -166,10 +165,6 @@ shape = SubResource("RectangleShape2D_3iti4")
 
 [node name="Respawn_point" type="Marker2D" parent="." groups=["Respawn_point"]]
 
-[node name="Ranged_guy" parent="." instance=ExtResource("10_p24lo")]
-position = Vector2(813, 115)
-
 [connection signal="timeout" from="Player/CoolDown" to="Player" method="_on_cool_down_timeout"]
 [connection signal="health_depleted" from="Player/health" to="Player" method="_on_health_health_depleted"]
-[connection signal="health_depleted" from="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D/health" to="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D" method="_on_health_health_depleted"]
 [connection signal="health_depleted" from="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D/health" to="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D/Sprite2D" method="_on_health_health_depleted"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxqtl67tv8750"]
+
+[ext_resource type="Script" uid="uid://bx5lhxacj2dxl" path="res://Ranged_guy.gd" id="1_iqn2g"]
+[ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="2_02b7f"]
+[ext_resource type="Script" uid="uid://c6o7skf3blqbe" path="res://Health/heartbox.gd" id="3_18awr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyqht"]
+size = Vector2(127, 130)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n2l24"]
+radius = 422.11847
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0ugy"]
+size = Vector2(125, 129)
+
+[node name="Ranged_guy" type="Node2D"]
+position = Vector2(551, 290)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_iqn2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_02b7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_cyqht")
+
+[node name="Player_radiar" type="Area2D" parent="CharacterBody2D" groups=["Player_radiar"]]
+position = Vector2(1, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Player_radiar"]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("CircleShape2D_n2l24")
+
+[node name="hurtbox" type="Area2D" parent="CharacterBody2D"]
+script = ExtResource("3_18awr")
+metadata/_custom_type_script = "uid://c6o7skf3blqbe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hurtbox"]
+position = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_v0ugy")

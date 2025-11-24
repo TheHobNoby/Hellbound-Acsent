@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkw6hgd8us4fb"]
+[gd_scene load_steps=6 format=3 uid="uid://b0c4082mykwto"]
 
-[ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="1_mui8k"]
-[ext_resource type="Script" uid="uid://dyaey5mwi6w7x" path="res://Player_Folder/damge_ball.gd" id="1_s0rs5"]
-[ext_resource type="Script" uid="uid://bqpt61g7escv7" path="res://Health/hitbox.gd" id="3_m8fho"]
+[ext_resource type="Script" uid="uid://dyaey5mwi6w7x" path="res://Player_Folder/damge_ball.gd" id="1_70fvp"]
+[ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="2_2jgd5"]
+[ext_resource type="Script" uid="uid://bqpt61g7escv7" path="res://Health/hitbox.gd" id="3_x6a0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0rs5"]
 size = Vector2(64, 27)
@@ -10,13 +10,13 @@ size = Vector2(64, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w5nj"]
 size = Vector2(64.5, 27)
 
-[node name="Ball" type="Area2D" groups=["Ball", "Balls"]]
-script = ExtResource("1_s0rs5")
+[node name="Arrow" type="Area2D" groups=["Ball", "Balls"]]
+script = ExtResource("1_70fvp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["Balls"]]
 position = Vector2(-3.000002, -2)
 scale = Vector2(0.49218756, 0.2109375)
-texture = ExtResource("1_mui8k")
+texture = ExtResource("2_2jgd5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Balls"]]
 modulate = Color(0, 0, 0, 1)
@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_s0rs5")
 rect = Rect2(-35, -16, 64, 27)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Balls"]]
-script = ExtResource("3_m8fho")
+script = ExtResource("3_x6a0k")
 metadata/_custom_type_script = "uid://bqpt61g7escv7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["Balls"]]

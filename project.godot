@@ -12,8 +12,21 @@ config_version=5
 
 config/name="Level Assets"
 run/main_scene="res://Charater.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+health="*res://Health/Health.gd"
+Heartbox="*res://Health/heartbox.gd"
+Hitboxy="*res://Health/hitbox.gd"
+HitboxPlayer="*res://Health/hitbox_players.gd"
+DamgeBall="*res://Player_Folder/damge_ball.gd"
+
+[global_group]
+
+Balls=""
+player_marker=""
 
 [input]
 
