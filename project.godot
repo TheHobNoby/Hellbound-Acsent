@@ -12,8 +12,15 @@ config_version=5
 
 config/name="Level Assets"
 run/main_scene="res://Levels/Level 1.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Heartbox="*res://Health/heartbox.gd"
+Hitbox="*res://Health/hitbox.gd"
+HitboxPlayers="*res://Health/hitbox_players.gd"
+HurtBoxPlayer="*res://Health/Hurt_box_player.gd"
 
 [input]
 

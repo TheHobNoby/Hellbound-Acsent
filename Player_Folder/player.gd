@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -600.0
 
+const JUMP_VELOCITY = -600.0
 var walk_speed = 500
 var jump_count = 0
 var Max_jump = 5
@@ -9,9 +9,7 @@ var is_ready: bool = true
 var weapon = true
 var weapon_cooldown = true 
 var Damge_ball = preload("res://Player_Folder/Damge ball.tscn")
-
-
-
+var current_health: int = 3
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -42,13 +40,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Movement
 	
-		
-	# Sprint
-	if Input.is_action_just_pressed("sprint") and is_on_floor():
-		walk_speed += 500
-	if Input.is_action_just_released("sprint") and is_on_floor():
-		walk_speed -= 500
-
 	# Normal Movement
 	var direction := Input.get_axis("left", "right")
 	if direction:
@@ -72,3 +63,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_cool_down_timeout() -> void:
 	is_ready = true
+
+
+
+func _on_health_health_depleted() -> void:
+	get_tree().reload_current_scene()

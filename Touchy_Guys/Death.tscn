@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyvfu7ac6exq"]
+
+[ext_resource type="Script" uid="uid://cndg4crtheik0" path="res://Touchy_Guys/death.gd" id="1_v43qg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnhyq"]
+size = Vector2(80, 82.25)
+
+[node name="Death" type="Node2D"]
+position = Vector2(488, 177)
+script = ExtResource("1_v43qg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hnhyq")
