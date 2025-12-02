@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dblg4bkty058"
-path="res://.godot/imported/Fireball-Sheet.png-dbc2192d1ea2aa224df03d7cce21bf5f.ctex"
+uid="uid://4jrd41w1ifu5"
+path="res://.godot/imported/cyber ashes.png-9b191d1d9abe735da113f01bc57f8a1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fireball-Sheet.png"
-dest_files=["res://.godot/imported/Fireball-Sheet.png-dbc2192d1ea2aa224df03d7cce21bf5f.ctex"]
+source_file="res://cyber ashes.png"
+dest_files=["res://.godot/imported/cyber ashes.png-9b191d1d9abe735da113f01bc57f8a1c.ctex"]
 
 [params]
 
