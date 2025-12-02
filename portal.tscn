@@ -7,7 +7,6 @@ size = Vector2(91, 417)
 
 [node name="Portal" type="Area2D"]
 script = ExtResource("1_fnp2d")
-next_level = "res://Levels/Level 2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_priority = 4

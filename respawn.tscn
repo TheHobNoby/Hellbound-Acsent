@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://jcucweejpxph"]
+
+[ext_resource type="Script" uid="uid://csaxrsaetmtsk" path="res://Respawn/respawn.gd" id="1_68ajp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt0dn"]
+size = Vector2(54, 92)
+
+[node name="Respawn" type="Area2D"]
+script = ExtResource("1_68ajp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 36)
+shape = SubResource("RectangleShape2D_nt0dn")
+
+[node name="Respawn Point" type="Marker2D" parent="."]
+position = Vector2(83, 40)

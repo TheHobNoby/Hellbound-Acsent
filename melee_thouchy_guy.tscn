@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwtm2x20np5gk"]
+
+[ext_resource type="Script" uid="uid://cscorws36kqlk" path="res://node_2d.gd" id="1_tuvs1"]
+[ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="2_udhab"]
+[ext_resource type="Script" uid="uid://csxoudseg8xqq" path="res://Touchyguy.gd" id="3_idt7i"]
+[ext_resource type="Script" uid="uid://c6o7skf3blqbe" path="res://Health/heartbox.gd" id="4_idt7i"]
+[ext_resource type="Script" uid="uid://d3wyrxobsue1d" path="res://Health/Health.gd" id="5_ws224"]
+[ext_resource type="Script" uid="uid://dsed8qjw8dg2r" path="res://Health/hitbox_players.gd" id="6_idt7i"]
+
+[sub_resource type="Curve2D" id="Curve2D_02bgw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 173, 195, 0, 0, 0, 0, 1014, 195, 0, 0, 0, 0, 173, 195)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1chpm"]
+size = Vector2(54, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws224"]
+size = Vector2(53, 78)
+
+[node name="Melee_thouchy_guy" type="Node2D"]
+
+[node name="Melee_thouchy_guy" type="Node2D" parent="."]
+position = Vector2(175, 137)
+script = ExtResource("1_tuvs1")
+
+[node name="Path2D" type="Path2D" parent="Melee_thouchy_guy"]
+curve = SubResource("Curve2D_02bgw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Melee_thouchy_guy/Path2D"]
+position = Vector2(173, 195)
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D"]
+script = ExtResource("3_idt7i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(2.0000038, 0)
+scale = Vector2(0.4296875, 0.6328125)
+texture = ExtResource("2_udhab")
+
+[node name="Hurtbox" type="Area2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D" node_paths=PackedStringArray("health")]
+script = ExtResource("4_idt7i")
+health = NodePath("../health")
+metadata/_custom_type_script = "uid://c6o7skf3blqbe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D/Hurtbox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_1chpm")
+
+[node name="health" type="Node" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D"]
+script = ExtResource("5_ws224")
+metadata/_custom_type_script = "uid://d3wyrxobsue1d"
+
+[node name="hitboxPlayer" type="Area2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D"]
+script = ExtResource("6_idt7i")
+metadata/_custom_type_script = "uid://dsed8qjw8dg2r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D/hitboxPlayer"]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_ws224")
+
+[connection signal="health_depleted" from="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D/health" to="Melee_thouchy_guy/Path2D/PathFollow2D/CharacterBody2D/Sprite2D" method="_on_health_health_depleted"]
