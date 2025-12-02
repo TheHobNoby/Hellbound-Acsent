@@ -1,38 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkw6hgd8us4fb"]
+[gd_scene load_steps=9 format=3 uid="uid://bkw6hgd8us4fb"]
 
-[ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="1_mui8k"]
 [ext_resource type="Script" uid="uid://dyaey5mwi6w7x" path="res://Player_Folder/damge_ball.gd" id="1_s0rs5"]
+[ext_resource type="Texture2D" uid="uid://dblg4bkty058" path="res://Fireball-Sheet.png" id="3_8w5nj"]
 [ext_resource type="Script" uid="uid://bqpt61g7escv7" path="res://Health/hitbox.gd" id="3_m8fho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0rs5"]
-size = Vector2(64, 27)
+size = Vector2(54, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w5nj"]
-size = Vector2(64.5, 27)
+size = Vector2(53, 27)
 
-[node name="Ball" type="Area2D" groups=["Ball", "Balls"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iphsy"]
+atlas = ExtResource("3_8w5nj")
+region = Rect2(0, 11, 59, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afebi"]
+atlas = ExtResource("3_8w5nj")
+region = Rect2(59, 11, 59, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_004hh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iphsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afebi")
+}],
+"loop": true,
+"name": &"Fireball",
+"speed": 5.0
+}]
+
+[node name="Ball" type="Area2D"]
 script = ExtResource("1_s0rs5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["Balls"]]
-position = Vector2(-3.000002, -2)
-scale = Vector2(0.49218756, 0.2109375)
-texture = ExtResource("1_mui8k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Balls"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-3, -2.5)
+position = Vector2(-4, -2.5)
 shape = SubResource("RectangleShape2D_s0rs5")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." groups=["Balls"]]
-rect = Rect2(-35, -16, 64, 27)
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-31, -16, 54, 27)
 
-[node name="Hitbox" type="Area2D" parent="." groups=["Balls"]]
+[node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("3_m8fho")
 metadata/_custom_type_script = "uid://bqpt61g7escv7"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["Balls"]]
-position = Vector2(-2.75, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-4.5, -2)
 shape = SubResource("RectangleShape2D_8w5nj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.9999995, -1.9999999)
+scale = Vector2(1.0677966, 0.9390244)
+sprite_frames = SubResource("SpriteFrames_004hh")
+animation = &"Fireball"
+autoplay = "Fireball"
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

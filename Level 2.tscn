@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7pxrme4temmu" path="res://BaseTileMap.png" id="1_tfchr"]
 [ext_resource type="Script" uid="uid://b18q7vm3ys584" path="res://Player_Folder/player.gd" id="2_cl68u"]
-[ext_resource type="Script" uid="uid://cscorws36kqlk" path="res://node_2d.gd" id="3_aky0p"]
+[ext_resource type="Script" uid="uid://cscorws36kqlk" path="res://Melee_touchy_code.gd" id="3_aky0p"]
 [ext_resource type="Script" uid="uid://d3wyrxobsue1d" path="res://Health/Health.gd" id="4_4ew63"]
 [ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="4_tuelc"]
 [ext_resource type="Script" uid="uid://c3mml5r5syopm" path="res://Health/Hurt_box_player.gd" id="5_p24lo"]

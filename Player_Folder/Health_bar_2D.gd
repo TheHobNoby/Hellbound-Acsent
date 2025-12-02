@@ -1,0 +1,2 @@
+class_name Health_Bar_2D
+extends AnimatedSprite2D

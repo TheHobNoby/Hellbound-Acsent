@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://co0liic3g0er6"]
 
-[ext_resource type="Script" uid="uid://cscorws36kqlk" path="res://node_2d.gd" id="1_fqs21"]
+[ext_resource type="Script" uid="uid://cscorws36kqlk" path="res://Melee_touchy_code.gd" id="1_fqs21"]
 [ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="2_olk4q"]
 
 [sub_resource type="Curve2D" id="Curve2D_l7iy6"]
