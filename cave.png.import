@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dblg4bkty058"
-path="res://.godot/imported/Fireball-Sheet.png-dbc2192d1ea2aa224df03d7cce21bf5f.ctex"
+uid="uid://dulhgww80euj4"
+path="res://.godot/imported/cave.png-ed16753e4f303f3628391e4f3e9d3793.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fireball-Sheet.png"
-dest_files=["res://.godot/imported/Fireball-Sheet.png-dbc2192d1ea2aa224df03d7cce21bf5f.ctex"]
+source_file="res://cave.png"
+dest_files=["res://.godot/imported/cave.png-ed16753e4f303f3628391e4f3e9d3793.ctex"]
 
 [params]
 

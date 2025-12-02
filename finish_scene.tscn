@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://eanihf77y4m1"]
+
+[ext_resource type="Texture2D" uid="uid://devy7djp50hhk" path="res://dark cloud.png" id="1_kioob"]
+[ext_resource type="Script" uid="uid://bu4a8y73v2jkr" path="res://menu.gd" id="1_uhoe7"]
+[ext_resource type="Texture2D" uid="uid://dptfqe2qxl0iw" path="res://end screen.png" id="2_ulmbd"]
+[ext_resource type="Texture2D" uid="uid://ba62aao4ip70p" path="res://fog Copy.png" id="3_ikyic"]
+[ext_resource type="Script" uid="uid://b6epiddfht0mh" path="res://button.gd" id="4_uhoe7"]
+
+[node name="Finish scene" type="Node2D"]
+position = Vector2(467, 251)
+script = ExtResource("1_uhoe7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D"]
+position = Vector2(566, 323)
+scale = Vector2(270.312, 130.375)
+texture = ExtResource("1_kioob")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Area2D"]
+position = Vector2(482.5, 472.5)
+scale = Vector2(232.438, 140.562)
+texture = ExtResource("1_kioob")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(569, 325)
+scale = Vector2(7.66016, 7.72497)
+texture = ExtResource("2_ulmbd")
+
+[node name="Camera2D" type="Camera2D" parent="Area2D"]
+position = Vector2(566, 323)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 257.0
+offset_top = 481.0
+offset_right = 584.0
+offset_bottom = 561.0
+scale = Vector2(1.89212, 1.89212)
+text = "REPLAY GAME! (you might need to wait)"
+icon = ExtResource("3_ikyic")
+script = ExtResource("4_uhoe7")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

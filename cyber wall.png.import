@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dblg4bkty058"
-path="res://.godot/imported/Fireball-Sheet.png-dbc2192d1ea2aa224df03d7cce21bf5f.ctex"
+uid="uid://bmbmig02dyxx4"
+path="res://.godot/imported/cyber wall.png-f731473801dc159d81c4eb1f4e4908a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fireball-Sheet.png"
-dest_files=["res://.godot/imported/Fireball-Sheet.png-dbc2192d1ea2aa224df03d7cce21bf5f.ctex"]
+source_file="res://cyber wall.png"
+dest_files=["res://.godot/imported/cyber wall.png-f731473801dc159d81c4eb1f4e4908a7.ctex"]
 
 [params]
 
