@@ -9,7 +9,10 @@ func _ready():
 	connect("area_entered", _on_area_entered)
 
 func _on_area_entered(area: Area2D) -> void:
-		var flynn := area as Hitbox
+	var flynn := area as Hitbox
+	if flynn != null:
 		health.health -= flynn.damge
 		received_damge.emit(flynn.damge)
 		print("HIT")
+	else:
+		print("DEBUG: 'area' entered the hurtbox, but it was not a valid Hitbox type.")

@@ -1,19 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://h28gk81jhbdt"]
+[gd_scene load_steps=14 format=3 uid="uid://h28gk81jhbdt"]
 
-[ext_resource type="Script" path="res://Player_Folder/player.gd" id="1_7knsi"]
-[ext_resource type="Texture2D" uid="uid://6yec56nqes0s" path="res://icon.svg" id="2_usmf1"]
+[ext_resource type="Script" uid="uid://b18q7vm3ys584" path="res://Player_Folder/player.gd" id="1_7knsi"]
+[ext_resource type="Script" uid="uid://d3wyrxobsue1d" path="res://Health/Health.gd" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://bvf01or4jyxu0" path="res://Player Sprite-Sheet.png" id="4_2hs0m"]
+[ext_resource type="Script" uid="uid://c3mml5r5syopm" path="res://Health/Hurt_box_player.gd" id="4_sweqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gx074"]
 size = Vector2(39, 74)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
+size = Vector2(39, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("4_2hs0m")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": true,
+"name": &"Dash_P1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b26j0")
+}],
+"loop": false,
+"name": &"Dash_P2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(454, 230)
 script = ExtResource("1_7knsi")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.99999, 379)
-scale = Vector2(0.289063, 0.601563)
-texture = ExtResource("2_usmf1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, 374)
@@ -32,5 +92,23 @@ drag_vertical_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(9, 384)
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_hqtel")
+metadata/_custom_type_script = "uid://d3wyrxobsue1d"
+
+[node name="Hurtboxplayer" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+script = ExtResource("4_sweqy")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://c3mml5r5syopm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtboxplayer"]
+position = Vector2(5.5, 376)
+shape = SubResource("RectangleShape2D_2hs0m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b26j0")
+animation = &"Dash_P2"
+autoplay = "default"
 
 [connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
