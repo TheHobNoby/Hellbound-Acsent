@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cor6nnt6u2jvr"
-path="res://.godot/imported/Flying Sprite-Sheet.png-3b5f8c1eee00e298a89fe970a85af524.ctex"
+uid="uid://ou2kk2vlf7sp"
+path="res://.godot/imported/smoke.png-1dd42aa5792ef5e83f35f3747dc7c67d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Flying Sprite-Sheet.png"
-dest_files=["res://.godot/imported/Flying Sprite-Sheet.png-3b5f8c1eee00e298a89fe970a85af524.ctex"]
+source_file="res://smoke.png"
+dest_files=["res://.godot/imported/smoke.png-1dd42aa5792ef5e83f35f3747dc7c67d.ctex"]
 
 [params]
 

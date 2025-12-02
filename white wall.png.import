@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cor6nnt6u2jvr"
-path="res://.godot/imported/Flying Sprite-Sheet.png-3b5f8c1eee00e298a89fe970a85af524.ctex"
+uid="uid://covyxn7thrhsj"
+path="res://.godot/imported/white wall.png-49a6bb2fe5d29e74e5d136942be5542a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Flying Sprite-Sheet.png"
-dest_files=["res://.godot/imported/Flying Sprite-Sheet.png-3b5f8c1eee00e298a89fe970a85af524.ctex"]
+source_file="res://white wall.png"
+dest_files=["res://.godot/imported/white wall.png-49a6bb2fe5d29e74e5d136942be5542a.ctex"]
 
 [params]
 

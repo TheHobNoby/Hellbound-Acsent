@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dolobglvnllbs"]
+
+[ext_resource type="Texture2D" uid="uid://b4codyi76y61" path="res://ashes.png" id="1_kgu82"]
+
+[node name="CPUParticles2D11" type="CPUParticles2D"]
+position = Vector2(131, 246)
+amount = 6
+texture = ExtResource("1_kgu82")
+lifetime = 3.5
+randomness = 0.38
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(50, 1)
+gravity = Vector2(0, -100)
+angular_velocity_min = -14.55
+angular_velocity_max = 116.36
